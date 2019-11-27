@@ -13,8 +13,8 @@
             <td>Enlace</td>
           </tr>
           <tr v-for="a in albums" :key="a.id">
-            <td>{{ a.album}}</td>
-            <td><b-link>{{ a.link }}</b-link></td>
+            <td>{{ a.album }}</td>
+            <td><b-link :href="a.link">{{ a.link }}</b-link></td>
           </tr>
         </tbody>
       </table>
