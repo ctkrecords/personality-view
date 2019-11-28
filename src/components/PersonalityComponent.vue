@@ -5,8 +5,8 @@
     <div class="mb-4">
       <input type="text" v-model="username" @keyup.enter="findUser" />
     </div>
-    <div>
-      <table class="table striped">
+    <div id="table_id">
+      <table class="table striped" v-if="seen">
         <tbody>
           <tr>
             <td>Album</td>
@@ -37,7 +37,8 @@ export default {
     return {
       albums: null,
       errors: [],
-      username: ""
+      username: "",
+      seen: false
     };
   },
   methods: {
@@ -54,6 +55,8 @@ export default {
             //console.log(this.albums);
             if (this.albums == null) {
               alert("El usuario no puede ser analizado");
+            }else{
+              this.seen = true 
             }
           })
           .catch(e => alert(e));
